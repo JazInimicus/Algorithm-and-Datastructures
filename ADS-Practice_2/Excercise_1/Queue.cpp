@@ -14,21 +14,43 @@ Queue::Queue() {
 
 Queue::Queue(int capacity) {
 	// TODO:
-
-
+	Q = new int[capacity];
+	n = capacity;
+	head = capacity - 1;
+	tail = 0;
 }
 
 Queue::~Queue() {
 	delete[] Q;
 }
 
+//s. Folien K2 S.25
 bool Queue::isEmpty() {
 	// TODO
+	if ((head + 1) % n == tail)
+	{
+		cout << "Es gibt einen Ringpuffer Unterlauf";
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 
 }
 
+//s. Folien K2 S.25
 bool Queue::isFull() {
 	// TODO
+	if(head==tail)
+	{
+		cout << "Es gibt einen Ringpuffer Überlauf";
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 bool Queue::enqueue(int item) {
@@ -68,8 +90,14 @@ int Queue::size() {
 	return currentNumber;
 }
 
+//s. Folien K2 S.23
 void Queue::printAll() {
 	// TODO
+	for (int i = 0; i <= head; i++)
+	{
+		cout << Q[i] << endl;
+
+	}
 }
 
 void Queue::resizeQueue() {
