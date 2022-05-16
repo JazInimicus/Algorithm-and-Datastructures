@@ -20,7 +20,7 @@ void DoublyLinkedList::insert(int key)
 void DoublyLinkedList::erase(Node* delNode)
 {
 	/*
-		TODO: Übung 2 - Aufgabe 6
+		TODO: Übung 2 - Aufgabe 5
 	*/
 
 	//Listenmitte
@@ -168,4 +168,92 @@ void DoublyLinkedList::insertionSort() {
 		}
 	}
 	head = minNode;
+}
+
+
+//Task 6
+void DoublyLinkedList::selectionSort()
+{
+	if (head == nullptr || head->next == nullptr)
+	{
+		return;
+	}
+
+	Node* node = head;
+
+	while (node->next != nullptr)
+	{
+		Node* minNode = node;
+		int minKey = node->key;
+
+		for (auto current = node->next; current != nullptr; current = current->next)
+		{
+			if (minKey >= current->key)
+			{
+				minNode = current;
+			}
+		}
+
+		auto node2 = node->next;
+
+		//Try 1
+		//node->next = minNode->next;
+		//node->prev = minNode->prev;
+		//minNode->next = node2->next;
+		//minNode->prev = node2->prev;
+
+		//Try 2
+		/*node->prev = minNode->prev;
+		node->next = minNode;
+		minNode->prev = node;
+		minNode->next = node2->next;
+
+		if (node2 != nullptr)
+		{
+			node2->prev = minNode;
+		}
+
+		if (node->prev != nullptr)
+		{
+			node->prev->next = node;
+		}
+
+		minNode = node->prev;*/
+
+
+
+		//std::swap(node->key, minNode->key);
+
+
+		node = node->next;
+		if (node == nullptr)
+		{
+			break;
+		}
+	}
+
+}
+
+void DoublyLinkedList::sortList() {
+	Node* current = nullptr;
+	Node* index = nullptr;
+	int temp;
+	//Check whether list is empty  
+	if (head == nullptr) {
+		return;
+	}
+	else {
+		//Current will point to head  
+		for (current = head; current->next != nullptr; current = current->next) {
+			//Index will point to node next to current  
+			for (index = current->next; index != nullptr; index = index->next) {
+				//If current's data is greater than index's data, swap the data of current and index  
+				if (current->key > index->key) {
+					temp = current->key;
+					current->key = index->key;
+					index->key = temp;
+				}
+			}
+		}
+	}
 }

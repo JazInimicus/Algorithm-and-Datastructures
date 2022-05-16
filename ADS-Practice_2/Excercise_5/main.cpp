@@ -78,6 +78,25 @@ int main() {
 	list4.insertionSort();
 	list4.print();
 
+
+	//Task 6
+	std::cout << std::endl;
+	std::cout << "Selection Sort" << std::endl;
+	DoublyLinkedList list5;
+	list5.insert(10);
+	list5.insert(1);
+	list5.insert(12);
+	list5.insert(5);
+	list5.insert(51);
+	list5.insert(4);
+	list5.insert(6);
+	list5.insert(7);
+	list5.insert(33);
+	list5.insert(2);
+	list5.print();
+	list5.sortList();
+	list5.print();
+
 	system("PAUSE");
 	return 0;
 }

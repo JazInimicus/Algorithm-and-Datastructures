@@ -13,5 +13,9 @@ public:
 	~DoublyLinkedList();	// Destruktor
 	void print();			// Liste ausgeben
 	void insertionSort();			// Liste sortieren
+
+	//Task 6
+	void selectionSort();
+	void sortList();
 };
 
