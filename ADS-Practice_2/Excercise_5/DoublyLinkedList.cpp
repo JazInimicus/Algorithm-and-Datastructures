@@ -22,6 +22,47 @@ void DoublyLinkedList::erase(Node* delNode)
 	/*
 		TODO: Übung 2 - Aufgabe 6
 	*/
+
+	//Listenmitte
+	/*if (delNode->next != nullptr && delNode->prev != nullptr)
+	{
+		delNode->prev->next = delNode->next;
+		delNode->next->prev = delNode->prev;
+	}*/
+
+	//Wenn nicht Listenanfang
+	if (delNode->prev != nullptr)
+	{
+		delNode->prev->next = delNode->next;
+	}
+
+	//Wenn Listenanfang
+	else
+	{
+		head = delNode->next;
+	}
+
+	//Wenn nicht Listenende
+	if (delNode->next != nullptr)
+	{
+		delNode->next->prev = delNode->prev;
+	}
+
+	////listenanfang
+	//else if (delNode->prev == nullptr)
+	//{
+	//	delNode->next->prev = delNode;
+	//}
+
+	////listenende
+	//else if (delNode->next == nullptr)
+	//{
+	//	delNode->prev->next = delNode;
+	//}
+
+	
+
+	delete delNode;
 }
 
 /**
@@ -34,8 +75,25 @@ void DoublyLinkedList::erase(Node* delNode)
 bool DoublyLinkedList::erase(int key)
 {
 	/*
-		TODO: Übung 2 - Aufgabe 6
+		TODO: Übung 2 - Aufgabe 5
 	*/
+
+	if (!search(key)) 
+	{
+		std::cout << "Knoten nicht vorhanden!" << std::endl;
+		return false;
+	}
+
+	else
+	{
+		auto del = head;
+		while (del != nullptr && del->key != key)
+		{
+			del = del->next;
+		}
+		erase(del);
+	}
+	
 
 	return false;
 }

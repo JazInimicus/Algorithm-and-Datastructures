@@ -4,6 +4,7 @@
 #include <iostream>
 
 int main() {
+	
 	std::locale::global(std::locale("German_germany"));
 
 	std::cout << "Doppelt verkettete Liste anlegen und mit Elementen (4, 3, 7, 9, 8, 5) füllen:" << std::endl;
@@ -18,16 +19,16 @@ int main() {
 
 
 	// TODO: folgenden Code nach der Implementierung der erase Methoden verwenden
-	/*
+	
 	std::cout << std::boolalpha;
-	std::cout << "Listenanfang löschen (list.erase(5)) - " << list.erase(5) << std::endl;
+	std::cout << "listenanfang löschen (list.erase(5)) - " << list.erase(5) << std::endl;
 	list.print();
-	std::cout << "mittleres Element löschen (list.erase(7)) - " << list.erase(7) << std::endl;
+	std::cout << "mittleres element löschen (list.erase(7)) - " << list.erase(7) << std::endl;
 	list.print();
-	std::cout << "Listenende löschen (list.erase(4)) - " << list.erase(4) << std::endl;
+	std::cout << "listenende löschen (list.erase(4)) - " << list.erase(4) << std::endl;
 	list.print();
-	std::cout << "Element (42) suchen (list.search(42)) - " << list.search(42) << std::endl;
-	*/
+	std::cout << "element (42) suchen (list.search(42)) - " << list.search(42) << std::endl;
+	
 
 	std::cout << std::endl << "Sortieren von doppelt verketteten Listen: " << std::endl;
 	DoublyLinkedList list2;
