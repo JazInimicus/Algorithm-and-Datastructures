@@ -1,13 +1,14 @@
 #include "DoublyLinkedList.h"
+#include "DoublyLinkedList.cpp"
 #include "Node.h"
 
 #include <iostream>
 
 int main() {
 	
-	std::locale::global(std::locale("German_germany"));
+	//std::locale::global(std::locale("German_germany"));
 
-	std::cout << "Doppelt verkettete Liste anlegen und mit Elementen (4, 3, 7, 9, 8, 5) füllen:" << std::endl;
+	std::cout << "Doppelt verkettete Liste anlegen und mit Elementen (4, 3, 7, 9, 8, 5) fï¿½llen:" << std::endl;
 	DoublyLinkedList list;
 	list.insert(4);
 	list.insert(3);
@@ -21,11 +22,11 @@ int main() {
 	// TODO: folgenden Code nach der Implementierung der erase Methoden verwenden
 	
 	std::cout << std::boolalpha;
-	std::cout << "listenanfang löschen (list.erase(5)) - " << list.erase(5) << std::endl;
+	std::cout << "listenanfang lï¿½schen (list.erase(5)) - " << list.erase(5) << std::endl;
 	list.print();
-	std::cout << "mittleres element löschen (list.erase(7)) - " << list.erase(7) << std::endl;
+	std::cout << "mittleres element lï¿½schen (list.erase(7)) - " << list.erase(7) << std::endl;
 	list.print();
-	std::cout << "listenende löschen (list.erase(4)) - " << list.erase(4) << std::endl;
+	std::cout << "listenende lï¿½schen (list.erase(4)) - " << list.erase(4) << std::endl;
 	list.print();
 	std::cout << "element (42) suchen (list.search(42)) - " << list.search(42) << std::endl;
 	

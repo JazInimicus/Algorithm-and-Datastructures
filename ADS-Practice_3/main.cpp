@@ -1,5 +1,6 @@
 #include <iostream>
 #include "binarysearchtree.h"
+#include "binarysearchtree.cpp"
 
 int main()
 {
