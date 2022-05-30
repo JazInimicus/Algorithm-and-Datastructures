@@ -19,7 +19,22 @@ int main()
 	Baum->insert(11);
 	Baum->insert(8);
 
+	//Jay Test
+	// Baum->insert2(5);
+	// Baum->insert2(3);
+	// Baum->insert2(7);
+	// Baum->insert2(1);
+	// Baum->insert2(4);
+	// Baum->insert2(6);
+	// Baum->insert2(10);
+	// Baum->insert2(2);
+	// Baum->insert2(9);
+	// Baum->insert2(11);
+	// Baum->insert2(8);
+
 	Baum->printBST();
+
+	//Jay Test
 	//Baum->printBST2();
 
 	delete Baum;

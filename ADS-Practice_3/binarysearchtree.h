@@ -18,6 +18,7 @@ public:
     BST();
     ~BST();
     void insert(int key);
+    void insert2(int key);
     int getBSTHeight(); // Starterfunktion f�r die rekursive 
      // Methode und liefert die H�he des 
      // Baumes zur�ck 

@@ -57,7 +57,7 @@ void BST::insert(int key)
 
 		while (true)
 		{
-			if (node->item <= current->item && current->left != nullptr)
+			if (node->item <= current->item)
 			{
 				if (current->left ==nullptr)
 				{
@@ -69,7 +69,7 @@ void BST::insert(int key)
 					current = current->left;
 				}
 			}
-			if (node->item > current->item && current->right != nullptr)
+			else
 			{
 				if (current->right == nullptr)
 				{
@@ -81,12 +81,47 @@ void BST::insert(int key)
 					current = current->right;
 				}
 			}
-			break;
 		}
-		current = node;
 	}
 
 }
+
+// void BST::insert2(int key)
+// {
+//   Treenode* node = new Treenode();
+//   node->item = key;
+
+//   if (head->right == nullptr) { //Baum leer
+//     head->right = node;
+//   }
+
+//   else {
+
+//     Treenode* curr = head->right;
+
+//     while (true) {
+//       if (node->item <= curr->item) {
+//         if (curr->left == nullptr) {
+//           curr->left = node;
+//           break;
+//         }
+//         else {
+//           curr = curr->left;
+//         }
+//       }
+      
+//       else {
+//         if (curr->right == nullptr) {
+//           curr->right = node;
+//           break;
+//         }
+//         else {
+//           curr = curr->right;
+//         }
+//       }
+//     }
+//   }
+// }
 
 void BST::printBST()
 {
@@ -118,7 +153,7 @@ void BST::printBST()
 
 			if(prevNiveau != currniveau)
 			{
-				std::cout << "Niveau " <<  currniveau << ": ";
+				std::cout << std::endl << "Niveau " <<  currniveau << ": ";
 				prevNiveau = currniveau;
 			}
 			
@@ -139,7 +174,7 @@ void BST::printBST()
 
 			//QNiveau.push(currniveau++);
 
-			std::cout << std::endl;
+			//std::cout << std::endl;
 
 		}
 	}
@@ -151,50 +186,50 @@ void BST::printBST()
 	return;
 }
 
-void BST::printBST2()
-{
-  std::queue<int> niveauQ; //Niveau der Knoten
-  std::queue<Treenode*> nodeQ; //KInoten referencen
-  int cNiveau = 0; //aktuelles Niveau
-  Treenode* curr = head->right; //aktueller Knoten
+// void BST::printBST2()
+// {
+//   std::queue<int> niveauQ; //Niveau der Knoten
+//   std::queue<Treenode*> nodeQ; //KInoten referencen
+//   int cNiveau = 0; //aktuelles Niveau
+//   Treenode* curr = head->right; //aktueller Knoten
 
-  //Fall: Baum ist leer (head->right == nullptr) -> keine Ausgabe
+//   //Fall: Baum ist leer (head->right == nullptr) -> keine Ausgabe
 
-  if (head->right == nullptr) {
-    std::cout << "Baum ist leer." << std::endl;
-  }
+//   if (head->right == nullptr) {
+//     std::cout << "Baum ist leer." << std::endl;
+//   }
 
-  else if (head->right != nullptr) {//nicht leer
-    nodeQ.push(curr);
-    niveauQ.push(cNiveau);
+//   else if (head->right != nullptr) {//nicht leer
+//     nodeQ.push(curr);
+//     niveauQ.push(cNiveau);
 
-    //niveuawechsel
-    int prevNiveau = -1;
+//     //niveuawechsel
+//     int prevNiveau = -1;
 
-    while (!nodeQ.empty()) { //solange nodes in queue
-      curr = nodeQ.front(); //erstes element nehmen
-      nodeQ.pop(); //element aus Queue loeschen
-      cNiveau = niveauQ.front();
-      niveauQ.pop();
+//     while (!nodeQ.empty()) { //solange nodes in queue
+//       curr = nodeQ.front(); //erstes element nehmen
+//       nodeQ.pop(); //element aus Queue loeschen
+//       cNiveau = niveauQ.front();
+//       niveauQ.pop();
 
-      if (prevNiveau != cNiveau) { //Ausgabe bei Niveauwechsel
-        std::cout << "Niveau " << cNiveau << ": ";
-        prevNiveau = cNiveau;
-      }
+//       if (prevNiveau != cNiveau) { //Ausgabe bei Niveauwechsel
+//         std::cout << "Niveau " << cNiveau << ": ";
+//         prevNiveau = cNiveau;
+//       }
 
-      std::cout << "(" << curr->item << ")";
+//       std::cout << "(" << curr->item << ")";
 
-      if (curr->left != nullptr) { //wenn vorhanden einfuegen
-        nodeQ.push(curr->left);
-      }
+//       if (curr->left != nullptr) { //wenn vorhanden einfuegen
+//         nodeQ.push(curr->left);
+//       }
 
-      if (curr->right != nullptr) {
-        nodeQ.push(curr->right);
-      }
+//       if (curr->right != nullptr) {
+//         nodeQ.push(curr->right);
+//       }
 
-      niveauQ.push(cNiveau++);
-	  std::cout << std::endl;
-    }
-  }
-  return;
-}
+//       niveauQ.push(cNiveau++);
+// 	  std::cout << std::endl;
+//     }
+//   }
+//   return;
+// }
