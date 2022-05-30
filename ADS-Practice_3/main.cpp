@@ -54,6 +54,13 @@ int main()
 		Baum2->printNiveau(i);
 	}
 
+	std::cout << std::endl << std::endl;
+
+	for(int i = 0; i <= Baum2->getBSTHeight(); i++)
+	{
+		Baum2->printHeight(i);
+	}
+
 	
 
 	//Jay Test

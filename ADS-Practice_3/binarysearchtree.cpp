@@ -2,6 +2,7 @@
 #include "binarysearchtree.h"
 #include "Treenode.h"
 #include <queue>
+#include <algorithm>
 
 
 int BST::computeHeight(Treenode* p)
@@ -250,9 +251,42 @@ void BST::printNiveau(int niveau)
 	return;
 }
 
-void BST::printHeight(int height)
+int BST::printHeight(Treenode* node, int height)
 {
-	std::cout << "Knoten von Hoehe " << height << ": ";
+	int lHeight = -1;
+	int rHeight = -1;
+	
+	if(node->left != nullptr)
+	{
+		lHeight = printHeight(node->left, height);
+	}
+
+	if(node->right != nullptr)
+	{
+		rHeight = printHeight(node->right, height);
+	}
+
+	int nHeight = std::max(lHeight, rHeight) + 1;
+
+	if(nHeight == height)
+	{
+		std::cout << "(" << node->item << ") ";
+	}
+
+	return nHeight;
+	
+}
+
+void BST::printHeight(int height)
+{	
+	if(head->right != nullptr)
+	{
+		std::cout << "Knoten von Hoehe " << height << ": ";
+		printHeight(head->right, height);
+		std::cout << std::endl;
+	}
+
+
 }
 
 
