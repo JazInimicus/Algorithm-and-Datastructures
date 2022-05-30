@@ -5,23 +5,24 @@ class BST {
 private:
     Treenode* head;
     int computeHeight(Treenode* p); // rekursive Methode, 
-    // berechnet die Höhe zum 
+    // berechnet die Hï¿½he zum 
     // Knoten p und gibt diese 
-    // zurück 
+    // zurï¿½ck 
 
-    void deleteBST(Treenode* p); // löscht den Teilbaum ab p
+    void deleteBST(Treenode* p); // lï¿½scht den Teilbaum ab p
    
-    // rekursive Methode zur Ausgabe aller Knoten zu einer Höhe
+    // rekursive Methode zur Ausgabe aller Knoten zu einer Hï¿½he
     int printHeight(Treenode* node, int height);
 
 public:
     BST();
     ~BST();
     void insert(int key);
-    int getBSTHeight(); // Starterfunktion für die rekursive 
-     // Methode und liefert die Höhe des 
-     // Baumes zurück 
+    int getBSTHeight(); // Starterfunktion fï¿½r die rekursive 
+     // Methode und liefert die Hï¿½he des 
+     // Baumes zurï¿½ck 
     void printBST(); // Ausgabe des BST in Levelorder
+    void printBST2();
     void printNiveau(int niveau); // Ausgabe aller Knoten zu einem Niveau
-    void printHeight(int height); // Ausgabe aller Knoten zu einer Höhe
+    void printHeight(int height); // Ausgabe aller Knoten zu einer Hï¿½he
 };

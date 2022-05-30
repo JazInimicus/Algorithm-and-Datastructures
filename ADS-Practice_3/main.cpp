@@ -1,6 +1,7 @@
 #include <iostream>
 #include "binarysearchtree.h"
 #include "binarysearchtree.cpp"
+#include <queue>
 
 int main()
 {
@@ -19,9 +20,10 @@ int main()
 	Baum->insert(8);
 
 	Baum->printBST();
+	//Baum->printBST2();
 
 	delete Baum;
 
-	system("PAUSE");
+	//system("PAUSE");
 	return 0;
 }
