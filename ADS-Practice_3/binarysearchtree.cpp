@@ -3,6 +3,29 @@
 #include "Treenode.h"
 #include <queue>
 
+
+int BST::computeHeight(Treenode* p)
+{
+	if(p == nullptr)
+	{
+		return -1;
+	}
+
+	int lheight = computeHeight(p->left);
+	int rheight = computeHeight(p->right);
+
+	if(lheight >= rheight)
+	{
+		p->height = lheight +1;
+	}
+	else
+	{
+		p->height = rheight +1;
+	}
+
+	return p->height;
+}
+
 void BST::deleteBST(Treenode* p)
 {
 	Treenode* current = p; //current position
@@ -86,42 +109,12 @@ void BST::insert(int key)
 
 }
 
-// void BST::insert2(int key)
-// {
-//   Treenode* node = new Treenode();
-//   node->item = key;
+int BST::getBSTHeight()
+{
+	head->right->height = computeHeight(head->right);
 
-//   if (head->right == nullptr) { //Baum leer
-//     head->right = node;
-//   }
-
-//   else {
-
-//     Treenode* curr = head->right;
-
-//     while (true) {
-//       if (node->item <= curr->item) {
-//         if (curr->left == nullptr) {
-//           curr->left = node;
-//           break;
-//         }
-//         else {
-//           curr = curr->left;
-//         }
-//       }
-      
-//       else {
-//         if (curr->right == nullptr) {
-//           curr->right = node;
-//           break;
-//         }
-//         else {
-//           curr = curr->right;
-//         }
-//       }
-//     }
-//   }
-// }
+	return head->right->height;
+}
 
 void BST::printBST()
 {
@@ -185,6 +178,122 @@ void BST::printBST()
 
 	return;
 }
+
+
+void BST::printNiveau(int niveau)
+{
+	
+
+
+		std::queue<int> QNiveau; //Integer-Niveau vom Knoten aus der ersten Queue
+	std::queue<Treenode*> QNode; //Referenzen der Knoten erhalten
+	int currniveau = 0;
+	Treenode* current = head->right; //aktueller Knoten
+
+	//Fall: Baum ist leer (head->irght == nullptr)
+	if(head->right == nullptr)
+	{
+		std::cout << "Empty Tree" << std::endl;
+	}
+
+	else if(head->right != nullptr)
+	{
+		QNode.push(current);
+		QNiveau.push(currniveau);
+
+		//Niveauchange
+		int prevNiveau = -1;
+
+		std::cout << std::endl << "Knoten von Niveau " << niveau << ": ";
+
+		while(!QNode.empty() && currniveau != niveau +1)
+		{
+			current = QNode.front(); //Erstes Element nehmen
+			QNode.pop(); //Erstes Element löschen
+			currniveau = QNiveau.front();
+			QNiveau.pop();
+
+			if(prevNiveau != currniveau)
+			{
+				prevNiveau = currniveau;
+			}
+			
+			if(currniveau == niveau)
+			{
+			std::cout << "(" << current->item << ")";
+			}
+			
+			if(current->left != nullptr)
+			{
+				QNode.push(current->left);
+				QNiveau.push(currniveau + 1);
+			}
+
+			if(current->right != nullptr)
+			{
+				QNode.push(current->right);
+				QNiveau.push(currniveau + 1);
+			}
+
+
+			//QNiveau.push(currniveau++);
+
+			//std::cout << std::endl;
+
+		}
+	}
+
+
+	//std::cout << "Niveau " << niveau << ": ";
+	
+
+	return;
+}
+
+void BST::printHeight(int height)
+{
+	std::cout << "Knoten von Hoehe " << height << ": ";
+}
+
+
+//Jay Tests//
+
+// void BST::insert2(int key)
+// {
+//   Treenode* node = new Treenode();
+//   node->item = key;
+
+//   if (head->right == nullptr) { //Baum leer
+//     head->right = node;
+//   }
+
+//   else {
+
+//     Treenode* curr = head->right;
+
+//     while (true) {
+//       if (node->item <= curr->item) {
+//         if (curr->left == nullptr) {
+//           curr->left = node;
+//           break;
+//         }
+//         else {
+//           curr = curr->left;
+//         }
+//       }
+      
+//       else {
+//         if (curr->right == nullptr) {
+//           curr->right = node;
+//           break;
+//         }
+//         else {
+//           curr = curr->right;
+//         }
+//       }
+//     }
+//   }
+// }
 
 // void BST::printBST2()
 // {
